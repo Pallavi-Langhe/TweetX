@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/firebase";
 
-function Login() {
+let Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     // Add your login logic here
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+    } catch {
+      console.error(error);
+    }
+
     console.log("Logging in with:", email, password);
   };
   return (
@@ -60,6 +68,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
 export default Login;
