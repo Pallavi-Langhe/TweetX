@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+const Navbar = () => {
   return (
     <nav className="shadow-md p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -12,7 +12,7 @@ function Navbar() {
 
         {/* Navigation Links */}
         <div className="space-x-8 mr-48">
-          <Link to="/posts" className="text-rose-500 font-medium">
+          <Link to="/" className="text-rose-500 font-medium">
             Feed
           </Link>
           <Link to="/users" className="text-rose-500 font-medium">
@@ -25,6 +25,6 @@ function Navbar() {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

@@ -1,15 +1,33 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../config/firebase";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSignup = () => {
-    // Add your signup logic here
-    console.log("Signing up with:", name, email, password, confirmPassword);
+  const handleSignup = async () => {
+    !name ||
+    !email ||
+    !password ||
+    !confirmPassword ||
+    !(password == confirmPassword)
+      ? alert("Invaild data")
+      : console.log("Signing up with:", name, email, password, confirmPassword);
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      updateProfile({
+        displayName: name,
+      });
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (

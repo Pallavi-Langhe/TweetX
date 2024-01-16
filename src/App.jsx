@@ -1,4 +1,5 @@
 import "./App.css";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -6,7 +7,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Users from "./components/Users";
 import Profile from "./components/Profile";
-import Posts from "./components/Posts";
+// import { auth } from "../config/firebase";
 
 function App() {
   return (
@@ -30,9 +31,6 @@ function App() {
             <li>
               <Link to="/profile"></Link>
             </li>
-            <li>
-              <Link to="/posts"></Link>
-            </li>
           </ul>
         </nav>
 
@@ -41,7 +39,6 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/users" element={<Users />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/posts" element={<Posts />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </div>

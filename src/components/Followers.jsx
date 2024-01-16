@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react'
 
-function Followers() {
-  return <div>Followers</div>;
+const Followers = () => {
+  return (
+    <div>Followers</div>
+  )
 }
 
-export default Followers;
+export default Followers

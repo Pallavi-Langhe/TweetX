@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Folloing() {
+const Folloing = () => {
   return (
     <div>Folloing</div>
   )

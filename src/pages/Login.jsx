@@ -1,21 +1,25 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 
 let Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    // Add your login logic here
+    !email || !password
+      ? alert("Invaild data")
+      : console.log("Log in with:", email, password);
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-    } catch {
-      console.error(error);
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("Logging in with:", email, password);
+      navigate("/");
+    } catch (err) {
+      alert(err);
+      console.error(err);
     }
-
-    console.log("Logging in with:", email, password);
   };
   return (
     <div>

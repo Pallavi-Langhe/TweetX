@@ -1,7 +1,8 @@
 import React from "react";
+import Feed from "../components/Feed";
 
-function Home() {
-  return <div>Home</div>;
-}
+const Home = (props) => {
+  return <Feed props={props} />;
+};
 
 export default Home;
