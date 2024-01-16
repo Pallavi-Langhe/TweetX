@@ -40,6 +40,7 @@ const Feed = () => {
     try {
       await addDoc(usersCollectionRef, {
         posts: postContent,
+        // name: displayName
       });
     } catch (err) {
       console.error(err);

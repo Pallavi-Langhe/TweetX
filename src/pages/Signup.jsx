@@ -21,9 +21,9 @@ const Signup = () => {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      updateProfile({
-        displayName: name,
-      });
+      // updateProfile({
+      //   displayName: name,
+      // });
       navigate("/");
     } catch (err) {
       console.error(err);

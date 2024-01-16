@@ -13,7 +13,8 @@ let Login = () => {
       ? alert("Invaild data")
       : console.log("Log in with:", email, password);
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const user1 = await signInWithEmailAndPassword(auth, email, password);
+      console.log(user1);
       console.log("Logging in with:", email, password);
       navigate("/");
     } catch (err) {
