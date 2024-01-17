@@ -21,6 +21,9 @@ const Navbar = () => {
           <Link to="/profile" className="text-rose-500 font-medium">
             Profile
           </Link>
+          <Link to="/login" className="text-rose-500 font-medium">
+            Log-out
+          </Link>
         </div>
       </div>
     </nav>

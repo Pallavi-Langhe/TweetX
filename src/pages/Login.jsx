@@ -14,7 +14,8 @@ let Login = () => {
       : console.log("Log in with:", email, password);
     try {
       const user1 = await signInWithEmailAndPassword(auth, email, password);
-      console.log(user1);
+      console.log(user1.user.uid);
+
       console.log("Logging in with:", email, password);
       navigate("/");
     } catch (err) {
